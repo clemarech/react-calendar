@@ -1,25 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Calendar from './Calendar.jsx';
+import moment from 'moment';
 
 class App extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      event: false,
+    }
+  }
+  
+  
   render() {
+    console.log("state dans app", this.state)
+    let dayClasses = function(date) {
+      let day = date.isoWeekday();
+      if (day === 6 || day === 7) {
+        return ['weekend'];
+      }
+      return [];
+    };
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Calendar
+          locale="fr"
+          startOfWeekIndex={1}
+          dayClasses={dayClasses}
+        />
       </div>
     );
   }

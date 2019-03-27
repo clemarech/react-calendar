@@ -1,0 +1,18 @@
+.Calendar {
+    width: 100%;
+}
+.Day-inner{
+    width: 10vw;
+    height: 10vh;
+    margin: auto;
+    text-align: end;
+}
+
+td{
+    background:  grey;
+}
+td:hover{
+    background-color:  #f1f1f1;
+}
+.Day{
+}
